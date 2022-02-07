@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>Page Title</title>
+		<meta charset="UTF-8"/>
+  </head>
+	<body>
+		<script>
+			// Your JavaScript goes here!
+			function getRandomInt(max) {
+				return Math.floor(Math.random() * max);
+			}
+			function computerPlay(){
+				const rnum = getRandomInt(3);
+				if(rnum==0){
+					return "rock";
+				}
+				if(rnum==1){
+					return "paper";
+				}
+				if(rnum==2){
+					return "scissors";
+				}
+				return "Wrong Input";
+			}
+
+			function playRound(playerSelecetion, computerSelection) {
+				playerSelecetion = playerSelecetion.toLowerCase(); 
+				if(playerSelecetion == computerSelection && computerSelection == "rock"){
+					return "Tie! Both players played Rock!";
+				}
+				if(playerSelecetion == computerSelection && computerSelection == "paper"){
+					return "Tie! Both players played Paper!";
+				}
+				if(playerSelecetion == computerSelection && computerSelection == "scissors"){
+					return "Tie! Both players played Scissors!";
+				}
+			  if(computerSelection == "rock" && playerSelecetion == "paper"){
+					return "You win! Paper beats Rock";							
+				}
+				if(computerSelection == "rock" && playerSelecetion == "scissors"){
+					return "You lose! Rock beats Scissors";
+				}
+				if(computerSelection == "paper" && playerSelecetion == "scissors"){
+					return "You win! Scissors beats Paper";
+				}
+				if(computerSelection == "paper" && playerSelecetion == "rock"){
+					return "You lose! Paper beats Rock";
+				}
+				if(computerSelection == "scissors" && playerSelecetion == "rock"){
+					return "You win! Rock beats Scissors";
+				}
+				if(computerSelection == "scissors" && playerSelecetion == "paper"){
+					return "You lose! Scissors beats Paper";
+				}
+				if(playerSelecetion == "Wrong Input"){
+					return "error!";
+				}
+				return "error2";
+				
+			}
+			//const playerSelecetion = prompt("Rock, Paper, Scicssors?");
+			//const computerSelection = computerPlay();
+			//console.log(playRound(playerSelecetion, computerSelection));
+
+			function game() {
+				for(let i = 0; i < 5; i++){
+					console.log(playRound(computerPlay(), computerPlay()));
+				}
+				return
+			}
+
+			console.log(game());
+			
+		</script>
+	</body>
+</html>
